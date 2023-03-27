@@ -1,7 +1,13 @@
 FROM gcr.io/kaniko-project/executor:latest as kaniko
 
 FROM alpine:latest
-COPY --from=kaniko / /
+#COPY --from=kaniko / /
+
+COPY --from=kaniko /kaniko/executor /kaniko/executor
+COPY --from=kaniko /kaniko/docker-credential-gcr /kaniko/docker-credential-gcr
+COPY --from=kaniko /kaniko/docker-credential-ecr-login /kaniko/docker-credential-ecr-login
+COPY --from=kaniko /kaniko/docker-credential-acr /kaniko/docker-credential-acr
+COPY --from=kaniko /kaniko/.docker /kaniko/.docker
 
 # RUN apk -U upgrade && \
 #   apk add --no-cache libcap && \
