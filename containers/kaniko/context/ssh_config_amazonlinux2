@@ -1,0 +1,3 @@
+Host !10.83.132.* !10.83.133.* !10.176.12.* !10.176.2.* *
+StrictHostKeyChecking no
+ProxyCommand /usr/bin/nc --proxy fwpprod.internal-devops-dxc-cegeka.be:3128 --proxy-type http %h 22
