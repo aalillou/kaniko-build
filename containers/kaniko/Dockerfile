@@ -15,13 +15,13 @@ COPY --from=kaniko / /
 
 # CMD ["/kaniko/executor"]
 
-ENV DOCKER_CREDENTIAL_GCR_CONFIG=/kaniko/.config/gcloud/docker_credential_gcr_config.json
-ENV DOCKER_CONFIG=/kaniko/.docker/
-ENV SSL_CERT_DIR=/kaniko/ssl/certs
-ENV PATH=$PATH:/kaniko
+# ENV DOCKER_CREDENTIAL_GCR_CONFIG=/kaniko/.config/gcloud/docker_credential_gcr_config.json
+# ENV DOCKER_CONFIG=/kaniko/.docker/
+# ENV SSL_CERT_DIR=/kaniko/ssl/certs
+# ENV PATH=$PATH:/kaniko
 
-USER kaniko
-WORKDIR /workspace
+# USER kaniko
+# WORKDIR /workspace
 
-ENV HOME=/kaniko
-ENV TZ=Europe/Brussels
+# ENV HOME=/kaniko
+# ENV TZ=Europe/Brussels
