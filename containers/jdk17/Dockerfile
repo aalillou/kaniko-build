@@ -1,4 +1,4 @@
-ARG APP_IMAGE=amazoncorretto:17-alpine-jdk
+ARG APP_IMAGE=arm64v8/amazoncorretto
 FROM $APP_IMAGE
 
 # ARG PROXY=""
