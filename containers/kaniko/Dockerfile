@@ -1,12 +1,7 @@
 FROM gcr.io/kaniko-project/executor:latest as kaniko
 
 FROM alpine:latest
-COPY --from=kaniko /kaniko /kaniko
-
-ARG PROXY=""
-
-ENV http_proxy $PROXY
-ENV https_proxy $PROXY
+COPY --from=kaniko / /
 
 RUN apk -U upgrade && \
   apk add --no-cache libcap && \
