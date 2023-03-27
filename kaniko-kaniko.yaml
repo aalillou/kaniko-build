@@ -7,7 +7,7 @@ spec:
   containers:
   - name: kaniko
     image: gcr.io/kaniko-project/executor:debug
-    args: ["--context=git://github.com/aalillou/kaniko-demo", "--destination=aalillou/kaniko-demo:1.0.0"]
+    args: ["--dockerfile=/containers/kaniko/Dockerfile", "--context=git://github.com/aalillou/kaniko-build", "--destination=aalillou/devops-kaniko:1.0.0"]
     volumeMounts:
       - name: kaniko-secret
         mountPath: /kaniko/.docker

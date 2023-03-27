@@ -72,8 +72,7 @@ docker image build \
 
 exit
 
-kubectl delete \
-    --filename docker-socket.yaml
+kubectl delete --filename docker-socket.yaml
 
 cat kaniko-git.yaml
 
@@ -105,14 +104,17 @@ kubectl create secret \
     --docker-password=$REGISTRY_PASS \
     --docker-email=$REGISTRY_EMAIL
 
-kubectl apply \
-    --filename kaniko-git.yaml
+kubectl apply -f kaniko-git.yaml
+
+kubectl apply -f kaniko-kaniko.yaml
     
 kubectl wait \
     --for condition=containersready \
     pod kaniko
 
 kubectl logs kaniko --follow
+
+kubectl delete --filename kaniko-git.yaml
 
 # Open it in browser
 
